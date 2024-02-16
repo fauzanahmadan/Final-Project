@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40481ac3-cece-4ead-a456-b284d239281f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/features/web.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/WebPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepDef/WebStep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/webTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/api.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/api.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helper/Endpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/Endpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/get_list_users_normal.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/get_list_users_normal.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/get_profile_user_normal.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/get_profile_user_normal.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/get_profile_user_not_found.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/get_profile_user_not_found.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/post_create_user_normal.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/JSONSchemaData/post_create_user_normal.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helper/Models.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/Models.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helper/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ApiPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ApiPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runner/ApiRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runner/ApiRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/ApiStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/ApiStep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
