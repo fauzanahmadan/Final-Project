@@ -63,6 +63,13 @@ jobs:
       - name: Execute Web Test
         run: ./gradlew runWebTester
 
+      # Archive Test Result
+      - name: Archive Test Result
+        uses: actions/upload-artifact@v3.1.0
+        if: always()
+        with:
+          name: Cucumber Report
+          path: reports
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3.7.3
