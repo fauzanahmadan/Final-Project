@@ -4,11 +4,16 @@
 
 2. API Automation Testing
 
-    Testing dilakukan dengan menggunakan web dummyapi.io, dengan beberapa negative dan positive test case, cara melakukan running API AUTOMATION TEST dengan menjalanakan file ApiRunner.java yang terdapat dalam package runner.
+    Testing dilakukan dengan menggunakan web dummyapi.io, dengan beberapa negative dan positive test case, 
+    cara melakukan running API AUTOMATION TEST dengan menjalanakan perintah ./gradlew runApiTester di terminal.
 
-4. Web Automation Testing
 
-    Testing ini dilakukan dengan menggunakan web demo yaitu demoblaze.com, namun test ini masih dalam proses pembuatan untuk beberpa test case, jadi belum bisa di lakukan running secara regresi, anda bisa melakukan running dengan menjalankan gherkin format yang terdapat pada package feature dan file Web.Feature
+3. Web Automation Testing
+
+    Testing ini dilakukan dengan menggunakan web demo yaitu demoblaze.com, ada beberapa negative dan positive test case,
+    cara melakukan running WEB AUTOMATION TEST ini dengan menjalankan perintah ./gradlew runWebTester di terminal. 
+    Namun ada beberapa yang harus diperhatikan seperti test case sign up user itu harus mengganti username dengan yang belum didaftarkan pada web tersebut.
+
 
    Berikut hasil Testing dari kedua API dan Web testing tersebut.
    1. API

@@ -24,10 +24,47 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.0'
 
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.10.0'
-    testImplementation 'io.github.bonigarcia:webdrivermanager:5.4.1'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
 
 }
 
 test {
     useJUnitPlatform()
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
 }
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+    tasks.register('runApiTester') {
+        dependsOn assemble, testClasses
+        doLast {
+            javaexec {
+                main = "io.cucumber.core.cli.Main"
+                classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+                args = [
+                        '--plugin', 'pretty',
+                        '--plugin', 'html:reports/cucumber-api-report.html',
+                        '--glue', 'stepDef',
+                        '--tags', "@api",
+                        'src/test/java/features']
+            }
+        }
+    }
+
+    tasks.register('runWebTester') {
+        dependsOn assemble, testClasses
+        doLast {
+            javaexec {
+                main = "io.cucumber.core.cli.Main"
+                classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+                args = [
+                        '--plugin', 'pretty',
+                        '--plugin', 'html:reports/cucumber-web-report.html',
+                        '--glue', 'stepDef',
+                        '--tags', "@web",
+                        'src/test/java/features']
+            }
+        }
+    }
