@@ -54,7 +54,9 @@ jobs:
 
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v0.0.0
-
+        with:
+          chrome-version: '114'
+          
       - name: Setup gradlew
         run: chmod +x gradlew
 
