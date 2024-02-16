@@ -4,7 +4,7 @@ Feature: Test Automation Web
   Scenario:Test web sign up normal
     Given user go to Product Store page
     And user click menu Sign up
-    When user input sign up username "Michio12456"
+    When user input sign up username "Michio1245"
     And  user input sign up password "Michio1"
     And user click sign up button
     Then validation display message "Sign up successful."
@@ -45,8 +45,8 @@ Feature: Test Automation Web
   Scenario:Test web login normal
     Given user go to Product Store page
     And user click menu Log in
-    When user input username "fauzan"
-    And user input password "fauzan123"
+    When user input username "Michio1245"
+    And user input password "Michio1"
     And user click login button
     Then User login successfully with welcome message "Welcome fauzan"
 
@@ -54,8 +54,8 @@ Feature: Test Automation Web
   Scenario:Test web logout
     Given user go to Product Store page
     And user click menu Log in
-    When user input username "fauzan"
-    And user input password "fauzan123"
+    When user input username "Michio1245"
+    And user input password "Michio1"
     And user click login button
     When User click menu Log out
     Then User Log out Successfully and display menu "Sign up"
@@ -81,8 +81,8 @@ Feature: Test Automation Web
   Scenario: order Product Normal
   Given user go to Product Store page
   And user click menu Log in
-  When user input username "fauzan"
-  And user input password "fauzan123"
+  When user input username "Michio1245"
+  And user input password "Michio1"
   And user click login button
   When user order product item
   And User click Add to chart
@@ -93,8 +93,8 @@ Feature: Test Automation Web
    Scenario: Place order on cart menu normal
    Given user go to Product Store page
    And user click menu Log in
-   When user input username "fauzan"
-   And user input password "fauzan123"
+   When user input username "Michio1245"
+   And user input password "Michio1"
    And user click login button
    And user go to cart page
    When user click button Place Order
