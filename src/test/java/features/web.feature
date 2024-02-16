@@ -4,8 +4,8 @@ Feature: Test Automation Web
   Scenario:Test web sign up normal
     Given user go to Product Store page
     And user click menu Sign up
-    When user input sign up username "Admin"
-    And  user input sign up password "Admin123"
+    When user input sign up username "Michio123"
+    And  user input sign up password "Michio1"
     And user click sign up button
     Then validation display message "Sign up successful."
 
@@ -61,14 +61,14 @@ Feature: Test Automation Web
     Then User Log out Successfully and display menu "Sign up"
 
   @web
-  Scenario:Test web Play Video in About us Menu
+  Scenario:Play Video in About us Menu
     Given user go to Product Store page
     And user click menu About Us
     When user click button video
     Then Video played successfully
 
   @web
-  Scenario:Test web Send Message in Contact Menu case Normal
+  Scenario:Send Message in Contact Menu case Normal
     Given user go to Product Store page
     And user click menu Contact
     When user input Contact Email "fauzan@yahoo.com"
@@ -77,3 +77,32 @@ Feature: Test Automation Web
     And user click button Send Message
     Then validation display message "Thanks for the message!!"
 
+   @web
+  Scenario: order Product Normal
+  Given user go to Product Store page
+  And user click menu Log in
+  When user input username "fauzan"
+  And user input password "fauzan123"
+  And user click login button
+  When user order product item
+  And User click Add to chart
+  Then validation display message "Product added."
+  And validation the Cart Page
+
+   @web
+   Scenario: Place order on cart menu normal
+   Given user go to Product Store page
+   And user click menu Log in
+   When user input username "fauzan"
+   And user input password "fauzan123"
+   And user click login button
+   And user go to cart page
+   When user click button Place Order
+   And user input Name "Fauzan Ahmad"
+   And user input Country "Indonesia"
+   And user input City "Cianjur"
+   And user input Credit Card "12345"
+   And user input Moth "8"
+   And user input Year "2024"
+   And user click button Purchase
+   Then Order process successfully

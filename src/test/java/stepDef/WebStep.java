@@ -1,5 +1,6 @@
 package stepDef;
 
+import helper.Utility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -109,5 +110,71 @@ public class WebStep {
     @Then("User Log out Successfully and display menu {string}")
     public void userLogOutSuccessfullyAndDisplayMenu(String logoutMenu) {
         webPage.validateLogout(logoutMenu);
+    }
+
+    @When("user order product item")
+    public void userOrderProductItem() {
+        webPage.orderProductItem();
+    }
+
+    @And("User click Add to chart")
+    public void userClickAddToChart() {
+        webPage.addToChart();
+    }
+
+    @And("validation the Cart Page")
+    public void userShouldBeAbleSeeProductOrderedInTheCartPage() {
+        webPage.cartPage();
+    }
+
+    @When("user click button Place Order")
+    public void userClickButtonPlaceOrder() {
+        webPage.placeOrder();
+    }
+
+    @And("user input Name {string}")
+    public void userInputName(String name) {
+        webPage.inputNameOrder(name);
+    }
+
+    @And("user input Country {string}")
+    public void userInputCountry(String country) {
+        webPage.inputCountryOrder(country);
+    }
+
+    @And("user input City {string}")
+    public void userInputCity(String city) {
+        webPage.inputCityOrder(city);
+
+    }
+
+    @And("user input Credit Card {string}")
+    public void userInputCreditCard(String cc) {
+        webPage.InputCcOrder(cc);
+    }
+
+    @And("user input Moth {string}")
+    public void userInputMoth(String month) {
+        webPage.inputMonth(month);
+    }
+
+    @And("user input Year {string}")
+    public void userInputYear(String year) {
+        webPage.inputYearOrder(year);
+    }
+
+    @And("user click button Purchase")
+    public void userClickButtonPurchase() {
+        webPage.clickBtnOrder();
+    }
+
+    @Then("Order process successfully")
+    public void orderProcessSuccessfully() {
+        webPage.validateOrder();
+    }
+
+    @And("user go to cart page")
+    public void userGoToCartPage() {
+        webPage.goToCartPage();
     }
 }

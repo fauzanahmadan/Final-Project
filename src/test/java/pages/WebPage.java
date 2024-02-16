@@ -29,6 +29,21 @@ public class WebPage {
     By input_cName = By.id("recipient-name");
     By txtMessage = By.id("message-text");
     By txtWelcome = By.xpath("//*[@id=\"nameofuser\"]");
+    By productLink = By.xpath("//*//*[@id=\"tbodyid\"]/div[1]/div/a/img");
+    By btnAddToChart = By.xpath("//*[@id=\"tbodyid\"]/div[2]/div/a");
+    By btnChart = By.xpath("//*[@id=\"cartur\"]");
+    By productChart = By.xpath("//*[@id=\"tbodyid\"]/tr/td[2]");
+    By btnOrder = By.xpath("//*[@id=\"page-wrapper\"]/div/div[2]/button");
+    By nameOrder = By.xpath("//*[@id=\"name\"]");
+    By countryOrder = By.id("country");
+    By cityOrder = By.id("city");
+    By cardOrder = By.id("card");
+    By monthOrder = By.id("month");
+    By yearOrder = By.id("year");
+    By btnPurchase = By.xpath("//*[@id=\"orderModal\"]/div/div/div[3]/button[2]");
+    By formOrder = By.xpath("//*[@id=\"orderModal\"]/div/div/div[2]");
+    By msgOrder = By.xpath("/html/body/div[10]");
+    By txtOrder = By.xpath(   "/html/body/div[10]/h2");
 
     By btn_sendMessage = By.xpath("//*[@id=\"exampleModal\"]/div/div/div[3]/button[2]");
 
@@ -41,6 +56,9 @@ public class WebPage {
     }
 
     public void inputUname(String uname){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(input_uname));
+
         driver.findElement(input_uname).sendKeys(uname);
     }
 
@@ -124,17 +142,127 @@ public class WebPage {
     }
 
     public void validateLogin(String message) {
-        WebElement welcome = driver.findElement(By.id("logout2"));
-        String welcomeTxt = welcome.getText();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(txtWelcome));
 
-        assertEquals(message, welcomeTxt);
+        WebElement loggedInUser = driver.findElement(By.id("nameofuser"));
+        String loggedInUsername = loggedInUser.getText();
+        assertEquals(message, loggedInUsername);
+
+        WebElement logoutLink = driver.findElement(By.id("logout2"));
+        assertTrue(logoutLink.isDisplayed());
     }
     public void clickBtnLogout() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btn_logout));
+
         driver.findElement(btn_logout).click();
     }
 
     public void validateLogout(String logoutMenu) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btn_signup));
+
         String txtLogout = driver.findElement(btn_signup).getText();
         assertTrue(txtLogout.contains(logoutMenu));
+    }
+
+    public void orderProductItem() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(productLink));
+
+        try {
+            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        driver.findElement(productLink).click();
+    }
+
+    public void addToChart() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btnAddToChart));
+
+        driver.findElement(btnAddToChart).click();
+    }
+
+    public void cartPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btnChart));
+
+        driver.findElement(btnChart).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(productChart));
+                try {
+            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebElement productElement = driver.findElement(productChart);
+        String productTxt = productElement.getText();
+
+        assertEquals("Samsung galaxy s6", productTxt);
+
+    }
+
+    public void placeOrder() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btnOrder));
+
+        driver.findElement(btnOrder).click();
+    }
+
+    public void inputNameOrder(String name) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(formOrder));
+
+        driver.findElement(nameOrder).sendKeys(name);
+    }
+
+    public void inputCountryOrder(String country) {
+        driver.findElement(countryOrder).sendKeys(country);
+    }
+
+    public void inputCityOrder(String city) {
+        driver.findElement(cityOrder).sendKeys(city);
+    }
+
+    public void InputCcOrder(String cc) {
+        driver.findElement(cardOrder).sendKeys(cc);
+
+    }
+
+    public void inputMonth(String month) {
+        driver.findElement(monthOrder).sendKeys(month);
+    }
+
+    public void inputYearOrder(String year) {
+        driver.findElement(yearOrder).sendKeys(year);
+    }
+
+    public void clickBtnOrder() {
+        driver.findElement(btnPurchase).click();
+    }
+
+    public void validateOrder() {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    wait.until(ExpectedConditions.visibilityOfElementLocated(msgOrder));
+
+    String txtOrderGetText = driver.findElement(txtOrder).getText();
+    assertEquals("Thank you for your purchase!",txtOrderGetText);
+
+    }
+
+    public void goToCartPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btnChart));
+
+        try {
+            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(btnChart).click();
     }
 }
