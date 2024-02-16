@@ -53,10 +53,10 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v0.0.0
+        uses: browser-actions/setup-chrome@v1.4.0
         with:
-          chrome-version: '114'
-          
+           chrome-version: '114'
+                    
       - name: Setup gradlew
         run: chmod +x gradlew
 
