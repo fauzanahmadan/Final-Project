@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'temurin'
 
       - name: Setup gradlew
@@ -26,40 +26,14 @@ jobs:
 
       - name: Execute API Test
         run: ./gradlew runApiTester
-
-      - name: Deploy report to Github Pages
+        
+      # Archive Test Result
+      - name: Archive Test Result
+        uses: actions/upload-artifact@v3.1.0
         if: always()
-        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          PERSONAL_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          PUBLISH_DIR: reports
-
-  run-web-automation:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Wait
-        uses: NathanFirmo/wait-for-other-job@v1.1.1
-        with:
-          token: ${{ secrets.TOKEN_GITHUB }}
-          job: 'run-api-automation'
-
-      - uses: actions/checkout@v3
-
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v0.0.0
-
-      - name: Setup gradlew
-        run: chmod +x gradlew
-
-      - name: Execute Web Test
-        run: ./gradlew runWebTester
+          name: Cucumber-api-report
+          path: reports
 
       - name: Deploy report to Github Pages
         if: always()
@@ -67,3 +41,4 @@ jobs:
         with:
           PERSONAL_TOKEN: ${{ secrets.TOKEN_DEPLOY_FINAL_PROJECT }}
           PUBLISH_DIR: reports
+
