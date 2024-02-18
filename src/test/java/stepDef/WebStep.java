@@ -5,7 +5,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.WebPage;
+
+import java.time.Duration;
 
 public class WebStep {
 
@@ -176,5 +179,10 @@ public class WebStep {
     @And("user go to cart page")
     public void userGoToCartPage() {
         webPage.goToCartPage();
+    }
+
+    @And("user has been log in")
+    public void userHasBeenLogIn() {
+        webPage.userHaseBeebLogin();
     }
 }

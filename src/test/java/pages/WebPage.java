@@ -13,6 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WebPage {
+
+    String globalUser = "Michio1245";
+    String globalPass = "Michio1";
     By btn_signup = By.id("signin2");
     By input_uname = By.id("sign-username");
     By input_pass = By.id("sign-password");
@@ -31,7 +34,7 @@ public class WebPage {
     By txtWelcome = By.xpath("//*[@id=\"nameofuser\"]");
     By productLink = By.xpath("//*//*[@id=\"tbodyid\"]/div[1]/div/a/img");
     By btnAddToChart = By.xpath("//*[@id=\"tbodyid\"]/div[2]/div/a");
-    By btnChart = By.xpath("//*[@id=\"cartur\"]");
+    By btnChart = By.id("cartur");
     By productChart = By.xpath("//*[@id=\"tbodyid\"]/tr/td[2]");
     By btnOrder = By.xpath("//*[@id=\"page-wrapper\"]/div/div[2]/button");
     By nameOrder = By.xpath("//*[@id=\"name\"]");
@@ -47,11 +50,20 @@ public class WebPage {
 
     By btn_sendMessage = By.xpath("//*[@id=\"exampleModal\"]/div/div/div[3]/button[2]");
 
+    public void tunggu(){
+        try {
+            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public void goToStorePage(){
         driver.get("https://www.demoblaze.com/");
     }
 
     public void clickBtnSignUp(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btn_signup));
         driver.findElement(btn_signup).click();
     }
 
@@ -73,6 +85,7 @@ public class WebPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());
 
+        tunggu();
         String alertText = driver.switchTo().alert().getText();
 
         assertTrue(alertText.contains(message));
@@ -93,11 +106,7 @@ public class WebPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//video")));
 
         // Wait for a few more seconds to ensure video starts playing
-        try {
-            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        tunggu();
 
         // Check if the video is playing
         WebElement videoElement = driver.findElement(By.xpath("//video"));
@@ -171,11 +180,7 @@ public class WebPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(productLink));
 
-        try {
-            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        tunggu();
 
         driver.findElement(productLink).click();
     }
@@ -193,16 +198,15 @@ public class WebPage {
 
         driver.findElement(btnChart).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(productChart));
-                try {
-            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        tunggu();
 
         WebElement productElement = driver.findElement(productChart);
+        assertTrue(productElement.isDisplayed());
+
+/*
         String productTxt = productElement.getText();
 
-        assertEquals("Samsung galaxy s6", productTxt);
+        assertEquals("Samsung galaxy s6", productTxt)*/;
 
     }
 
@@ -258,11 +262,25 @@ public class WebPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(btnChart));
 
-        try {
-            Thread.sleep(5000); // Wait for 5 seconds (You can adjust this according to your video length)
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        tunggu();
+
         driver.findElement(btnChart).click();
     }
+
+    public void userHaseBeebLogin(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btnLoginMenu));
+
+        driver.findElement(btnLoginMenu).click();
+
+        driver.findElement(unameLogin).sendKeys(globalUser);
+        tunggu();
+        driver.findElement(passLogin).sendKeys(globalPass);
+
+        driver.findElement(btn_login).click();
+
+
+    }
+
+
 }

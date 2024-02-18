@@ -57,3 +57,10 @@ Feature: Test Automation Rest API
     When hit delete user by id "65bb2ac113492cde6cfbd2d8"
     Then Validation status code is equal 404
     Then validation response body with message "RESOURCE_NOT_FOUND"
+
+  @api
+  Scenario:Test Get List Data Tag Normal
+    Given prepare url for "GET_LIST_TAGS"
+    When hit api get list tags
+    Then Validation status code is equal 200
+    Then validation response body get list tags

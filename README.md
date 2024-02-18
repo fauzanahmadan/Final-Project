@@ -1,7 +1,9 @@
 ﻿Final Project API dan WEB Automation testing, 
 1. Project ini dibuat untuk penyelesaian QA Engineer yang dilaksanakan oleh Jayjay School dengan final project API dan Web Automation test menggunakan Java.
 
+    Dalam project ini sudah di implementasikan CI/CD Github action, sehingga ketika kita melakukan pull/push project akan menjalankan job yang sudah di tentukan yaitu menjalankan API Automation Testing, dan WEB Automation Testing, dalam program ini juga ada tombol untuk menjalankan manual project yang terdapat pada menu github action. 
 
+    Aplikasi atau tools yang digunakan dalam project ini antara lain Java Unit Testing, Selenium Web Driver Manage, Gradle, JDK,Rest Assured, Cucumber, Github Action, Git dan Github.  
 2. API Automation Testing
 
     Testing dilakukan dengan menggunakan web dummyapi.io, dengan beberapa negative dan positive test case, 

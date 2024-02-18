@@ -84,4 +84,14 @@ public class ApiStep {
     public void hitDeleteUserById(String user_id) {
         apiPage.hitDeleteUserById(user_id);
     }
+
+    @When("hit api get list tags")
+    public void hitApiGetListTags() {
+        apiPage.hitGetListUser();
+    }
+
+    @Then("validation response body get list tags")
+    public void validationResponseBodyGetListTags() {
+        apiPage.validateListTxag();
+    }
 }

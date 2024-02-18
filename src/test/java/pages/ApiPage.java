@@ -32,6 +32,9 @@ public class ApiPage {
             case "GET_PROFILE_USER":
                 setUrl = Endpoint.GET_PROFILE_USER;
                 break;
+            case "GET_LIST_TAGS":
+                setUrl = Endpoint.GET_LIST_TAG;
+                break;
             default:
                 System.out.println("Masukan Url yang benar");
         }
@@ -115,5 +118,12 @@ public class ApiPage {
 
     public void hitDeleteUserById(String userId) {
         res = deleteUser(setUrl,userId);
+    }
+
+    public void validateListTxag() {
+        String tag = res.jsonPath().getString("data[4]");
+
+        assertThat(tag).isNotNull();
+
     }
 }
