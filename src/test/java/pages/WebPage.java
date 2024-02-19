@@ -14,8 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WebPage {
 
-    String globalUser = "Michio1245";
-    String globalPass = "Michio1";
     By btn_signup = By.id("signin2");
     By input_uname = By.id("sign-username");
     By input_pass = By.id("sign-password");
@@ -154,6 +152,7 @@ public class WebPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(txtWelcome));
 
+        tunggu();
         WebElement loggedInUser = driver.findElement(By.id("nameofuser"));
         String loggedInUsername = loggedInUser.getText();
         assertEquals(message, loggedInUsername);
