@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class WebPage {
 
     String globalUser = "fauzan";
-    String globalUser = "fauzan123";
+    String globalPass = "fauzan123";
     By btn_signup = By.id("signin2");
     By input_uname = By.id("sign-username");
     By input_pass = By.id("sign-password");
