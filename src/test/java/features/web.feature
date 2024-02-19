@@ -4,7 +4,7 @@ Feature: Test Automation Web
   Scenario:Test web sign up normal
     Given user go to Product Store page
     And user click menu Sign up
-    When user input sign up username "Michio1245890"
+    When user input sign up username "Michio345"
     And  user input sign up password "Michio1"
     And user click sign up button
     Then validation display message "Sign up successful."
